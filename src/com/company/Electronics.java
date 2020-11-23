@@ -3,7 +3,7 @@ package com.company;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Electronics {
+public class Electronics implements DeviceManager {
     private String manufacturer;
     private String model;
     private int price;
@@ -27,32 +27,42 @@ public class Electronics {
         this.screenSize = scanner.nextDouble();
     }
 
-    public void printInfo() {
-        System.out.println("-----------------------------");
-        System.out.println("Manufacturer : " + manufacturer);
-        System.out.println("Model : " + model);
-        System.out.println("Price : " + price);
-        System.out.println("CreationDate : " + creationDate);
-        System.out.println("IsUnderWarranty : " + (isUnderWarranty ? "Yes" : "No"));
-        System.out.println("ScreenSize : " + screenSize);
-    }
-
-    public Electronics(String manufacturer, String model, int price, Date creationDate, boolean isUnderWarranty, double screenSize) {
-        this.manufacturer = manufacturer;
-        this.model = model;
-        this.price = price;
-        this.creationDate = creationDate;
-        this.isUnderWarranty = isUnderWarranty;
-        this.screenSize = screenSize;
+    @Override
+    public String toString() {
+        return "Manufacturer = '" + manufacturer + '\'' + "\n" +
+                "Model = '" + model + '\'' + "\n" +
+                "Price = " + price + "\n" +
+                "CreationDate = " + creationDate + "\n" +
+                "IsUnderWarranty = " + (isUnderWarranty ? "Yes" : "No") + "\n" +
+                "ScreenSize = " + screenSize + "\n";
     }
 
     public Electronics() {
     }
 
+    public void start() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("You want to turn on device");
+        System.out.println("A. Yes");
+        System.out.println("B. No");
+        char answer;
+        answer = scanner.next().charAt(0);
+        switch (answer) {
+            case 'A':
+                turnOn();
+                break;
+            case 'B':
+                turnOff();
+                break;
+        }
+    }
+
+    @Override
     public void turnOn() {
         System.out.println("The device is on");
     }
 
+    @Override
     public void turnOff() {
         System.out.println("The device is off");
     }

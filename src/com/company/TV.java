@@ -2,14 +2,14 @@ package com.company;
 
 import java.util.Scanner;
 
-public class TV extends Electronics {
+public class TV extends Electronics implements DeviceManager {
     private boolean isColorTV;
     private boolean isFullHD;
 
     public TV() {
         createBasicCritters();
         createTVCritters();
-        System.out.println("Device created !!!");
+        System.out.println("TV created !!!\n");
     }
 
     public void createTVCritters() {
@@ -23,11 +23,10 @@ public class TV extends Electronics {
     }
 
     @Override
-    public void printInfo() {
-        super.printInfo();
+    public String toString() {
         System.out.println("Is TV Colorful  " + (isColorTV ? "Yes" : "No"));
         System.out.println("Is TV Full HD  " + (isFullHD ? "Yes" : "No"));
-
+        return super.toString();
     }
 
     @Override

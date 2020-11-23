@@ -2,19 +2,19 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Tablet extends Electronics {
+public class Tablet extends Electronics implements DeviceManager {
     private boolean hasCamera;
     private double cameraResolution;
 
     public Tablet() {
         createBasicCritters();
         createTabletCritters();
-        System.out.println("Device created !!!");
+        System.out.println("Tablet created !!!\n");
     }
 
     public void createTabletCritters() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Has camera : Y for (Yes) or N for (NO)");
+        System.out.println("Has the tablet camera : Y for (Yes) or N for (NO)");
         char answer = scanner.next().charAt(0);
         this.hasCamera = (answer == 'y' || answer == 'Y');
         System.out.println("Enter camera resolution");
@@ -22,10 +22,10 @@ public class Tablet extends Electronics {
     }
 
     @Override
-    public void printInfo() {
-        super.printInfo();
-        System.out.println("hasCamera " + (hasCamera ? "Yes" : "No"));
-        System.out.println("cameraResolution " + cameraResolution);
+    public String toString() {
+        System.out.println("Has Camera = " + (hasCamera ? "Yes" : "No"));
+        System.out.println("Camera Resolution = " + cameraResolution);
+        return super.toString();
     }
 
     @Override

@@ -1,21 +1,20 @@
 package com.company;
 
-import java.util.Date;
 import java.util.Scanner;
 
-public class Phone extends Electronics {
+public class Phone extends Electronics implements DeviceManager {
     private boolean hasCamera;
     private double cameraResolution;
 
     public Phone() {
         createBasicCritters();
         createPhoneCritters();
-        System.out.println("Device created !!!");
+        System.out.println("Phone created !!!\n");
     }
 
     public void createPhoneCritters() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Has camera : Y for (Yes) or N for (NO)");
+        System.out.println("Enter has the phone camera : Y for (Yes) or N for (NO)");
         char answer = scanner.next().charAt(0);
         this.hasCamera = (answer == 'y' || answer == 'Y');
         System.out.println("Enter camera resolution");
@@ -23,12 +22,11 @@ public class Phone extends Electronics {
     }
 
     @Override
-    public void printInfo() {
-        super.printInfo();
-        System.out.println("hasCamera " + (hasCamera ? "Yes" : "No"));
-        System.out.println("cameraResolution " + cameraResolution);
+    public String toString() {
+        System.out.println("Has Camera = " + (hasCamera ? "Yes" : "No"));
+        System.out.println("Camera Resolution = " + cameraResolution);
+        return super.toString();
     }
-
 
     @Override
     public void turnOn() {

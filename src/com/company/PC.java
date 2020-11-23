@@ -4,12 +4,12 @@ public class PC extends Electronics {
 
     public PC() {
         createBasicCritters();
-        System.out.println("Device created !!!");
+        System.out.println("PC created !!!\n");
     }
 
     @Override
-    public void printInfo() {
-        super.printInfo();
+    public String toString() {
+        return super.toString();
     }
 
     @Override
@@ -21,6 +21,4 @@ public class PC extends Electronics {
     public void turnOff() {
         System.out.println("The PC is off");
     }
-
-
 }
