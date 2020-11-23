@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 
-public class TV extends Electronics implements DeviceManager {
+public class TV extends Electronics {
     private boolean isColorTV;
     private boolean isFullHD;
 

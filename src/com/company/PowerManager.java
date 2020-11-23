@@ -1,6 +1,6 @@
 package com.company;
 
-public interface DeviceManager {
+public interface PowerManager {
     void turnOn();
 
     void turnOff();

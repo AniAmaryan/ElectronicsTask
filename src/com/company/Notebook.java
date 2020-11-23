@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Notebook extends Electronics implements DeviceManager {
+public class Notebook extends Electronics {
     private boolean hasCamera;
     private double cameraResolution;
 

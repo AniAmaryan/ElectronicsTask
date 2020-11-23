@@ -3,7 +3,7 @@ package com.company;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Electronics implements DeviceManager {
+public class Electronics implements PowerManager {
     private String manufacturer;
     private String model;
     private int price;
